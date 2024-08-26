@@ -51,12 +51,13 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: CircleNavBar(
-        activeIcons: const [
-          Icon(Icons.person, color: Colors.deepPurple),
-          Icon(Icons.home, color: Colors.deepPurple),
-          Icon(Icons.favorite, color: Colors.deepPurple),
-        ],
-        inactiveIcons: const [
+        middleButtonIndex: 1,
+        onMiddleButtonPressed: (index) {
+          tabIndex = index;
+          pageController.jumpToPage(index);
+        },
+        middleIcons: const Icon(Icons.home, color: Colors.deepPurple),
+        icons: const [
           Text("My"),
           Text("Home"),
           Text("Like"),
@@ -69,10 +70,9 @@ class _MyHomePageState extends State<MyHomePage>
           tabIndex = index;
           pageController.jumpToPage(tabIndex);
         },
-        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         cornerRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
           bottomRight: Radius.circular(24),
           bottomLeft: Radius.circular(24),
         ),

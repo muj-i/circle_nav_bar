@@ -52,18 +52,19 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: CircleNavBar(
-        
-        activeIcons: const [
+        elevation: 8,
+        circleShadowColor: Colors.red,
+        onMiddleButtonPressed: (index) {
+          tabIndex = index;
+          pageController.jumpToPage(index);
+        },
+        middleButtonIndex: 2,
+        middleIcons: Icon(Icons.home, color: Colors.white),
+
+        icons: const [
           Icon(Icons.person, color: Colors.white),
           Icon(Icons.favorite, color: Colors.white),
-          Icon(Icons.home, color: Colors.white),
-          Icon(Icons.face, color: Colors.white),
-          Icon(Icons.account_balance_rounded, color: Colors.white)
-        ],
-        inactiveIcons: const [
-          Icon(Icons.person, color: Colors.white),
-          Icon(Icons.favorite, color: Colors.white),
-          Icon(Icons.home, color: Colors.white),
+          Icon(Icons.home, color: Colors.transparent),
           Icon(Icons.face, color: Colors.white),
           Icon(Icons.account_balance_rounded, color: Colors.white)
         ],
@@ -78,19 +79,18 @@ class _MyHomePageState extends State<MyHomePage>
           color: Colors.white70,
         ),
         // circleWidth: 60,
-        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         cornerRadius: const BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-          bottomRight: Radius.circular(24),
-          bottomLeft: Radius.circular(24),
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
+          bottomRight: Radius.circular(0),
+          bottomLeft: Radius.circular(0),
         ),
-        circleColor: Colors.purple,
-        color: Colors.purple,
-        tabCurve: Curves.decelerate,
-        iconCurve: Easing.linear,
-        tabDurationMillSec: 500,
-        iconDurationMillSec: 100,
+        circleColor: Colors.red,
+        color: Colors.black,
+        // tabCurve: Curves.easeInOutSine,
+        // iconCurve: Easing.linear,
+        // tabDurationMillSec: 500,
+        // iconDurationMillSec: 100,
         activeIndex: tabIndex,
         onTap: (index) {
           tabIndex = index;
